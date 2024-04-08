@@ -27,7 +27,7 @@ def process_data(url):
     data['id'] = url['href'][index_code:index_code + 13]
     data['nombre'] = url.find('h2', {'class': 'ui-search-item__title'}).text
     data['link'] = url['href']
-    data['es_muñecona'] = True
+    data['es_nuevo'] = True
 
     return data
 
@@ -82,7 +82,7 @@ def read_html():
         df_actual = pd.read_excel(EXCEL_NAME)
 
         for i in range(0, len(df_actual)):
-            df_actual.loc[i, 'es_muñecona'] = False
+            df_actual.loc[i, 'es_nuevo'] = False
 
         art_codes = df_actual['id'].values.tolist()
 
